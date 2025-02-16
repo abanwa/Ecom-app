@@ -29,6 +29,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // updated url
+console.log("FRONTENDURL : ", process.env.FRONTENDURL);
 
 app.use(
   cors({
@@ -44,6 +45,8 @@ app.use(
     credentials: true
   })
 );
+
+app.options("*", cors()); // Handle preflight requests
 
 app.use(cookieParser());
 app.use(express.json());
