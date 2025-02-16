@@ -92,7 +92,9 @@ const loginUser = async (req, res) => {
     res
       .cookie("ecomToken", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV !== "DEVELOPMENT"
+        secure: process.env.NODE_ENV !== "DEVELOPMENT",
+        sameSite: 'none', // because the frontend and backend are different
+        domain: 'render.com' // remove it for localhost:5000
       })
       .json({
         success: true,
