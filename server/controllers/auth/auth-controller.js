@@ -89,14 +89,12 @@ const loginUser = async (req, res) => {
       { expiresIn: "60d" }
     );
 
-    res
-      .cookie("ecomToken", token, {
+    res.cookie("ecomToken", token, {
         // httpOnly: true,
         secure: process.env.NODE_ENV !== "DEVELOPMENT",
         sameSite: 'none', // because the frontend and backend are different
         domain: process.env.NODE_ENV !== "DEVELOPMENT" ? ".render.com" : undefined, // Set domain for production '.render.com' // remove it for localhost:5000
-      })
-      .json({
+      }).json({
         success: true,
         message: "Logged in successfully",
         user: {
