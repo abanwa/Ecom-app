@@ -94,7 +94,7 @@ const loginUser = async (req, res) => {
         httpOnly: true,
         secure: process.env.NODE_ENV !== "DEVELOPMENT",
         sameSite: 'none', // because the frontend and backend are different
-        domain: 'render.com' // remove it for localhost:5000
+        domain: process.env.NODE_ENV !== "DEVELOPMENT" ? ".render.com" : undefined, // Set domain for production '.render.com' // remove it for localhost:5000
       })
       .json({
         success: true,
@@ -126,6 +126,7 @@ const logoutUser = (req, res) => {
 // auth middleware
 const authMiddleware = async (req, res, next) => {
   const token = req.cookies?.ecomToken;
+  console.log("req.cookies : ", req.cookies);
   console.log("ecomToken : ", token);
   if (!token) {
     return res.status(401).json({
