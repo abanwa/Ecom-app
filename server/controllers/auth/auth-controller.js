@@ -90,10 +90,10 @@ const loginUser = async (req, res) => {
     );
 
     res.cookie("ecomToken", token, {
-        // httpOnly: true,
+        httpOnly: true,
         secure: process.env.NODE_ENV !== "DEVELOPMENT",
         sameSite: 'none', // because the frontend and backend are different
-        domain: process.env.NODE_ENV !== "DEVELOPMENT" ? ".render.com" : undefined, // Set domain for production '.render.com' // remove it for localhost:5000
+        domain: process.env.NODE_ENV !== "DEVELOPMENT" ? ".onrender.com" : undefined, // Set domain for production '.onrender.com' // remove it for localhost:5000
       }).json({
         success: true,
         message: "Logged in successfully",
