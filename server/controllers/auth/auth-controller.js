@@ -93,7 +93,7 @@ const loginUser = async (req, res) => {
         httpOnly: true,
         secure: process.env.NODE_ENV !== "DEVELOPMENT",
         sameSite: 'none', // because the frontend and backend are different
-        domain: process.env.NODE_ENV !== "DEVELOPMENT" ? ".onrender.com" : undefined, // Set domain for production '.onrender.com' // remove it for localhost:5000
+        domain: process.env.NODE_ENV !== "DEVELOPMENT" ? process.env.SERVER_URL : undefined, // Set domain for production '.onrender.com' // remove it for localhost:5000
       }).json({
         success: true,
         message: "Logged in successfully",
