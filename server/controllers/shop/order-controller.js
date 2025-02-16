@@ -34,6 +34,7 @@ const createOrder = async (req, res) => {
         cancel_url: "http://localhost:5173/shop/paypal-cancel"
       },
       */
+      
       // we will create these two pages for paypal success and failure payment
       application_context: {
         return_url: `${process.env.FRONTENDURL}/shop/paypal-return`,
