@@ -29,7 +29,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // updated url
-console.log("FRONTENDURL : ", process.env.FRONTENDURL);
+// console.log("FRONTENDURL : ", process.env.FRONTENDURL);
 
 app.use(
   cors({
